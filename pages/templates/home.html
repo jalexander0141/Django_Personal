@@ -1,42 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Home</title>
- <style>
-   .skill_container {
-      font-size: 20px;
-   }
-   .nav {
-      list-style-type: none;
-      text-decoration: none;
-      padding: auto;
-      margin: auto;
-      background-color: aqua;
-      color: aqua;
-      
-   }
- </style>
- <nav class="nav">
-   <li><a href = "">Home</a></li>
-   <li><a href = "projects">Projects</a></li>
-   <li><a href = "about">About</a></li>
- </nav>
- </head>
- <body>
-   <h1> A software developer with a passion for designing, learning, and problem solving.</h1>
-   
-   <div class="skill_container">
-    <h1>Skills</h1>
-    <! - Add content here -->
-    <body>test</body>
-    <h2>Front-End</h2>
-    <body class="front">Django, ReactJS, jQuery, SASS, HTML, CSS, Redux, ReactNative, Vue.js, Codepen, Angular, BootStrap, MaterialUI, Yarn, TailwindCSS, StledComponents</body>
-    <h2>Back-End</h2>
-    <body>Ruby on Rails, Nodejs, Express.js, Laravel</body>
-    <h2>Languages</h2>
-    <body>Python, C#, TypeScript, JavaScript, Java</body>
-   </body> 
-   </div>
- </html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; }
+        .skill_container { font-size: 20px; padding: 20px; }
+        
+        .nav {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            background-color: #00ffff; /* aqua */
+            padding: 15px;
+            margin: 0;
+        }
+        .nav li a { text-decoration: none; color: #333; font-weight: bold; }
+
+        /* Style for the typewriter cursor */
+        #typewriter::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink { 
+            0%, 100% { opacity: 1; } 
+            50% { opacity: 0; } 
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul class="nav">
+            <li><a href="">Home</a></li>
+            <li><a href="projects">Projects</a></li>
+            <li><a href="about">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- The ID here is used by the script below -->
+    <h1 id="typewriter"></h1>
+
+    <div class="skill_container">
+        <h1>Skills</h1>
+        <h2>Front-End</h2>
+        <p>Django, ReactJS, jQuery, SASS, HTML, CSS, Redux, ReactNative, Vue.js, Codepen, Angular, BootStrap, MaterialUI, Yarn, TailwindCSS, StyledComponents</p>
+        
+        <h2>Back-End</h2>
+        <p>Ruby on Rails, Nodejs, Express.js, Laravel</p>
+        
+        <h2>Languages</h2>
+        <p>Python, C#, TypeScript, JavaScript, Java</p>
+    </div>
+
+    <script>
+        const text = "Hi My Name is James Alexander and I love programinng!";
+        let i = 0;
+        const speed = 50; // Milliseconds per character
+
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+            // Potential deleting (Want to get a loop that types and deletes the same stuff)
+            // if (i >text.length) {
+            //    document.getElementById("typerwriter").innerHTML -= text.charAt(i);
+            //    i--;
+            //    setTimeout(typeWriter, speed);
+            // }
+        }
+
+        // Start the effect when page loads
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
